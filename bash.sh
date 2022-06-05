@@ -1,8 +1,8 @@
 #!/bin/bash
 ########################################################################################################################
 # BASH NOTES
-# From https://missing.csail.mit.edu/
-# Commands in bash are like machines in a factory connected by magic pipelines.
+# From https://missing.csail.mit.edu/, https://effective-shell.com/
+# In Unix and Linux - almost everything can be represented as a file. 
 ########################################################################################################################
 echo $PATH                                      # to print path
 mv                                              # to rename/move a file
@@ -21,6 +21,10 @@ echo 3 | sudo tee brightness                    # Each command in a pipeline is 
 chmod 754                                       # change file mode 4(r) + 2(w) + 1(x)
 foo=bar                                         # to assign a variable
 diff <(ls foo) <(ls bar)                        # show differences (get the output of a command as a variable)
+sort                                            # type ^D to end transmission, ^C to interrupt
+#!/usr/bin/env python                           # use environment variable to run Python scripts
+
+
 ########################################################################################################################
 $0 - Name of the script
 $1 to $9 - Arguments to the script. $1 is the first argument and so on.
