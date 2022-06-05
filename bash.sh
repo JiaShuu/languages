@@ -23,6 +23,17 @@ foo=bar                                         # to assign a variable
 diff <(ls foo) <(ls bar)                        # show differences (get the output of a command as a variable)
 sort                                            # type ^D to end transmission, ^C to interrupt
 #!/usr/bin/env python                           # use environment variable to run Python scripts
+find . -name src -type d                        # Find all directories named src
+find . -path '*/test/*.py' -type f              # Find all python files within test folder
+find . -mtime -1                                # Find all files modified in the last day (modification time)
+find . -size +500k -size -10M -name '*.tar.gz'  # Find all zip files with size in range 500k to 10M
+find . -name '*.tmp' -exec rm {} \;             # Delete all .tmp extension files
+find . -name '*.png' -exec convert {} {}.jpg \; # Find all PNG files and convert them to JPG
+fd ".*py"
+grep -C 1 -R foobar                             # context of 1 line and recursively
+history | grep ls                               # print history commands containing ls
+^r                                              # backward research
+cat mcd.sh | fzf                                # fuzzy find
 
 
 ########################################################################################################################
