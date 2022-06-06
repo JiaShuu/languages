@@ -34,7 +34,7 @@ grep -C 1 -R foobar                             # context of 1 line and recursiv
 history | grep ls                               # print history commands containing ls
 ^r                                              # backward research
 cat mcd.sh | fzf                                # fuzzy find
-
+fish                                            # autofill tool which gives history-based autosuggestions
 
 ########################################################################################################################
 $0 - Name of the script
@@ -71,4 +71,23 @@ rm foo?                    # rm foo1,foo2...foo999
 rm f*                      # rm fo,foo,fooo...
 mkdir foo bar
 touch {foo,bar}/{a..h}     # creates files foo/a, foo/b, ... foo/h, bar/a, bar/b, ... bar/h 
+########################################################################################################################
+# ex1
+#!/usr/bin/env bash
+marco() {
+    export MARCO=$(pwd)
+}
 
+polo() {
+    cd "$MARCO"
+}
+
+                        # another way
+#!/user/bin/env sh
+marco() {
+    pwd > /tmp/marco
+}
+polo() {
+    cd $(cat /tmp/marco)
+}
+########################################################################################################################
