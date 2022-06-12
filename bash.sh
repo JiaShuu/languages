@@ -37,6 +37,13 @@ cat mcd.sh | fzf                                # fuzzy find
 fish                                            # autofill tool which gives history-based autosuggestions
 &>file                                          # redirect stdout and stderr to file
                                                 # same as >&file     or       >file 2>&1
+echo "nameXnameXnameXname" | xargs -d X         # delimiter as X "name name name name" 
+tar -cvzf archive.tar.gz a.html                 # -c : creates archive 
+                                                # -v : verbosely list files processed
+                                                # -z : zip, creates tar file using gzip
+                                                # -f : filename, creates archive with given filename
+                                                
+
 ########################################################################################################################
 $0 - Name of the script
 $1 to $9 - Arguments to the script. $1 is the first argument and so on.
