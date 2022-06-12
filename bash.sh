@@ -42,7 +42,9 @@ tar -cvzf archive.tar.gz a.html                 # -c : creates archive
                                                 # -v : verbosely list files processed
                                                 # -z : zip, creates tar file using gzip
                                                 # -f : filename, creates archive with given filename
-                                                
+find . -type f | ls -t | head -n 5              # sorted by recency and print 5 lines                                  
+
+
 
 ########################################################################################################################
 $0 - Name of the script
@@ -142,3 +144,4 @@ rm /tmp/debug-{out,error}.txt
 echo "It took $runs runs."    
 ########################################################################################################################
 
+https://zacheller.dev/missing-semester1
