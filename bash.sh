@@ -92,3 +92,46 @@ polo() {
     cd $(cat /tmp/marco)
 }
 ########################################################################################################################
+# ex2 random.sh
+#!/usr/bin/env bash
+n=$((RANDOM % 100))
+
+if [[ n -eq 42 ]]; then
+    echo "Something went wrong">&2
+    echo "The error was using magic numbers"
+    exit 1
+fi
+
+echo "Everything went according to plan"
+
+
+# debug1.sh
+#!/usr/bin/env bash
+
+count=0
+until [[ "$?" -ne 0 ]];
+do
+count=$((count+1))
+./random.sh 2> out.txt
+done
+
+echo "found error after $count runs"
+cat out.txt
+
+
+# debug2.sh
+#!/usr/bin/env bash
+runs=0
+error=0
+while [ true ]; do
+    bash random.sh 1>>/tmp/debug-out.txt 2>>/tmp/debug-error.txt
+    ((++runs))
+    if [ -s /tmp/debug-error.txt ]; then
+        break
+    fi
+done
+cat /tmp/debug-out.txt /tmp/debug-error.txt
+rm /tmp/debug-{out,error}.txt
+echo "It took $runs runs."    
+########################################################################################################################
+
