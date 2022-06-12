@@ -35,7 +35,8 @@ history | grep ls                               # print history commands contain
 ^r                                              # backward research
 cat mcd.sh | fzf                                # fuzzy find
 fish                                            # autofill tool which gives history-based autosuggestions
-
+&>file                                          # redirect stdout and stderr to file
+                                                # same as >&file     or       >file 2>&1
 ########################################################################################################################
 $0 - Name of the script
 $1 to $9 - Arguments to the script. $1 is the first argument and so on.
